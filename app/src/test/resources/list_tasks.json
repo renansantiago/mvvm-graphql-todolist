@@ -1,0 +1,34 @@
+﻿{
+  "allTasks": [
+    {
+      "id": "a260b2ee-c367-4b9a-9b07-3060484e7cfd",
+      "name": "task 1",
+      "note": "notes task 1",
+      "isDone": true
+    },
+    {
+      "id": "faac7788-93f1-441b-aed7-a6c9376a34c6",
+      "name": "task 2",
+      "note": "notes of task 2",
+      "isDone": false
+    },
+    {
+      "id": "9ab066fb-09f8-4abf-a187-9c2ac7aeaa60",
+      "name": "task 3",
+      "note": null,
+      "isDone": false
+    },
+    {
+      "id": "4803eba6-44e6-4bcf-ae11-704aeff1f73c",
+      "name": "new task",
+      "note": "I should do this",
+      "isDone": false
+    },
+    {
+      "id": "d53effa6-96cb-44d9-b90e-23289ef31ca0",
+      "name": "last task",
+      "note": "finish take home",
+      "isDone": false
+    }
+  ]
+}

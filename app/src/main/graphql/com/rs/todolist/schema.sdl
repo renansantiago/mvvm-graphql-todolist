@@ -1,0 +1,26 @@
+directive @cacheControl(
+    maxAge: Int
+    scope: CacheControlScope
+) on FIELD_DEFINITION | OBJECT | INTERFACE
+enum CacheControlScope {
+    PUBLIC
+    PRIVATE
+}
+
+type Task {
+    id: String!
+    name: String!
+    note: String
+    isDone: Boolean!
+}
+
+type Query {
+    allTasks: [Task]
+}
+
+type Mutation {
+    generateAccessToken(apiKey: String!, userName: String!): String
+    createTask(name: String!, note: String, isDone: Boolean): Task
+    updateTaskStatus(id: String!, isDone: Boolean!): Task
+    deleteTask(id: String!): Boolean
+}

@@ -1,0 +1,34 @@
+mutation GenerateAccessToken($apiKey: String!, $userName: String!) {
+    generateAccessToken(apiKey: $apiKey, userName: $userName)
+}
+
+query AllTasks {
+    allTasks {
+        id
+        name
+        note
+        isDone
+    }
+}
+
+mutation CreateTask($name: String!, $note: String, $isDone: Boolean) {
+    createTask(name: $name, note: $note, isDone: $isDone) {
+        id
+        name,
+        note,
+        isDone
+    }
+}
+
+mutation UpdateTaskStatus($id: String!, $isDone: Boolean!) {
+    updateTaskStatus(id: $id, isDone: $isDone) {
+        id
+        name,
+        note,
+        isDone
+    }
+}
+
+mutation DeleteTask($id: String!) {
+    deleteTask(id: $id)
+}

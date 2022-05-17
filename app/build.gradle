@@ -1,0 +1,113 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.apollographql.apollo'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.rs.todolist"
+        minSdkVersion 23
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    def coreKtx="1.3.2"
+    def appCompact ="1.2.0"
+    def constraint = "2.0.4"
+    def fragmentKtx = "1.2.5"
+    def hilt_android_version = "2.28.3-alpha"
+    def hilt_version = "1.0.0-alpha02"
+    def viewModel = "2.2.0"
+    def coroutine = "1.4.2"
+    def material = "1.2.1"
+    def apollo = "2.4.6"
+    def gson = "2.8.6"
+    def room_version = "2.4.2"
+    def testCoreRunner = "1.2.0"
+    def espresso = "3.3.0"
+    def googleTruth = "1.0"
+    def barista = "3.7.0"
+    def androidxJunit = "1.1.2"
+    def junit = "4.13.1"
+    def androidxArchTest = "2.1.0"
+    def okHttp = "4.2.1"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "androidx.core:core-ktx:$coreKtx"
+    implementation "androidx.appcompat:appcompat:$appCompact"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint"
+
+    implementation "com.apollographql.apollo:apollo-runtime:$apollo"
+    implementation "com.apollographql.apollo:apollo-coroutines-support:$apollo"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttp"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModel"
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_android_version"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_android_version"
+    kapt "androidx.hilt:hilt-compiler:$hilt_version"
+
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtx"
+
+    //Gson
+    implementation "com.google.code.gson:gson:$gson"
+
+    //Room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //Test
+    androidTestImplementation "androidx.test:runner:$testCoreRunner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunit"
+    androidTestImplementation("com.schibsted.spain:barista:$barista") {
+        exclude group: "org.jetbrains.kotlin"
+    }
+
+    testImplementation "androidx.arch.core:core-testing:$androidxArchTest"
+    testImplementation "junit:junit:$junit"
+    testImplementation "com.google.truth:truth:$googleTruth"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine"
+}
+
+apollo {
+    generateKotlinModels.set(true)
+}
